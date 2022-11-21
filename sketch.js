@@ -33,30 +33,23 @@ function setup() {
   fft = new p5.FFT();
 
   // GUI
-  button = createButton("Start/Stop");
-  button.position(10, 10);
+  button = select("#start");
   button.mousePressed(toggleSequencer);
   
   // BPM
-  tempo = createSlider(TEMPO_MIN, TEMPO_MAX, TEMPO_MIN, 5);
-  tempo.position(90, 10);
-  tempo.style("width", "80px");
-
+  tempo = select("#tempo");
+  
   // SEED
-  seed = createInput(`0`, "number");
-  seed.position(190, 10);
-  seed.size(100);
+  seed = select("#seed");
   seed.input(updateSeed);
 
   // ROOT
-  rootSel = createSelect();
-  rootSel.position(10, 35);
+  rootSel = select("#rootNote")
   M_NOTES.forEach((n) => rootSel.option(n));
   rootSel.changed(switchScale);
   
   // SCALE
-  scaleSel = createSelect();
-  scaleSel.position(70, 35);
+  scaleSel = select("#selectedScale")
   M_PRESET.forEach((s, i) => {
     scaleSel.option(`${s.Name} (${s.Group})`, i);
   });
@@ -76,6 +69,8 @@ function setup() {
   
   // Share Link
   window.location.hash = `#${seed.value()}`;
+  trackTitle = select("#songTitle");
+  trackTitle.elt.innerText = `No ${seed.value()} in ${rootSel.value()}`;
 }
 
 function switchScale() {
@@ -92,11 +87,12 @@ function updateSeed() {
 }
 
 function mouseClicked(event) {
-  if (mouseX < 0 || mouseY < 0) return false;
-  cell_x = floor(map(mouseX, 0, width, 0, world_width));
-  cell_y = floor(map(mouseY, 0, height, 0, world_height));
-  stage[cell_x][cell_y] = !stage[cell_x][cell_y];
-  return true;
+    toggleSequencer();
+  // if (mouseX < 0 || mouseY < 0) return false;
+  // cell_x = floor(map(mouseX, 0, width, 0, world_width));
+  // cell_y = floor(map(mouseY, 0, height, 0, world_height));
+  // stage[cell_x][cell_y] = !stage[cell_x][cell_y];
+  // return true;
 }
 
 function makeSequence(seed) {
@@ -213,6 +209,13 @@ function draw() {
     strokeWeight(1);
     win_start = map(step - 1, 0, world_width, 0, width);
     rect(win_start, 0, width / world_width, height);
+  } else {
+      fill(color(255, 240));
+      rect(0, 0, width, height);
+      fill(color(0));
+      textSize(32);
+      textAlign(CENTER, CENTER);
+      text('TAP TO START', width/2, height/2);
   }
 }
 

@@ -4,11 +4,22 @@
     <script src="libs/p5.js"></script>
     <script src="libs/p5.sound.min.js"></script>
     <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
+    
     <meta charset="utf-8" />
 
   </head>
   <body>
+     <div hidden="true">
+         <button id="start">Start/Stop</button>
+         <input id="tempo" type="range" min="50" max="450" step="5"/>
+         <input id="seed" type="number"/>
+         <select id="rootNote"></select>
+         <select id="selectedScale"></select>
+     </div>
     <main>
+        <h1>Song Of Life</h1>
+        <h3 id="songTitle"></h3>
     </main>
     <script src="theory.js"></script>
     <script src="sketch.js"></script>

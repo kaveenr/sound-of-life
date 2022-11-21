@@ -5,10 +5,17 @@ html, body {
   background: white;
 }
 
-body {
+main {
+    padding: 0px;
+    height: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+main h3 {
+    margin-top: 0px;
 }
 
 
