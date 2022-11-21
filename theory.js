@@ -1,3 +1,5 @@
+// Snipped from
+// https://gist.github.com/guitarpickfm/2caf3f4ecc6efd7f07df958b1a245b8e
 const M_PRESET = [
   { Name: "Major", Value: "1;3;5;6;8;10;12", Group: "Common" },
   { Name: "Minor", Value: "1;3;4;6;8;9;11", Group: "Common" },

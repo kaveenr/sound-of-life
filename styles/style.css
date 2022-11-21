@@ -26,3 +26,8 @@ canvas {
 #songTitle {
     text-decoration: none;
 }
+
+hr {
+    width: 40vw;
+    border-top: 1px solid black;
+}
