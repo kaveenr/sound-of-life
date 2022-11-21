@@ -21,7 +21,8 @@ const neighbour_vecs = [
 let stage = Array.from(Array(world_width), () => new Array(world_height));
 
 function setup() {
-  createCanvas(...calcSize());
+  var canvas = createCanvas(...calcSize());
+  canvas.parent('world');
 
   // AUdio Setup
   reverb = new p5.Reverb();
@@ -68,9 +69,10 @@ function setup() {
   makeSequence(seed.value());
   
   // Share Link
-  window.location.hash = `#${seed.value()}`;
+  //window.location.hash = `#${seed.value()}`;
   trackTitle = select("#songTitle");
-  trackTitle.elt.innerText = `No ${seed.value()} in ${rootSel.value()}`;
+  trackTitle.elt.innerText = `No ${seed.value()} in ${rootSel.value()} (${M_PRESET[scaleSel.value()].Name})`;
+  trackTitle.elt.href = `#${seed.value()}`;
 }
 
 function switchScale() {
@@ -174,7 +176,7 @@ function draw() {
     step++;
   }
 
-  background(color("#D9E4EC"));
+  background(color("#FEFEFE"));
 
   // Waveform
   noFill();
@@ -210,7 +212,7 @@ function draw() {
     win_start = map(step - 1, 0, world_width, 0, width);
     rect(win_start, 0, width / world_width, height);
   } else {
-      fill(color(255, 240));
+      fill(color(255, 220));
       rect(0, 0, width, height);
       fill(color(0));
       textSize(32);
@@ -226,7 +228,7 @@ function windowResized() {
 function calcSize() {
   const seqRatio = calculateRatio(world_width, world_height);
   const sizeRoot = windowWidth < windowHeight ? windowWidth : windowHeight;
-  const deviser = 1.8;
+  const deviser = 1.3;
   return [
     (sizeRoot / deviser) * (seqRatio[0] / 10),
     (sizeRoot / deviser) * (seqRatio[1] / 10),

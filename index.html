@@ -1,13 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    
     <script src="libs/p5.js"></script>
     <script src="libs/p5.sound.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="styles/style.css">
-    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
-    
-    <meta charset="utf-8" />
 
+<link rel="preconnect" href="https://fonts.googleapis.com"> 
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+    
+    <script src="/reload/reload.js"></script>
+    <meta charset="utf-8" />
+    <title>Song Of Life</title>
   </head>
   <body>
      <div hidden="true">
@@ -18,8 +24,19 @@
          <select id="selectedScale"></select>
      </div>
     <main>
-        <h1>Song Of Life</h1>
-        <h3 id="songTitle"></h3>
+        <h1>
+            Song Of Life
+            <br/>
+            <a href="#" id="songTitle"></a>
+        </h1>
+        </br>
+        <div id="world"></div>
+        <p>
+            "Song Of Life" is a generative sequencer based on <a href="https://en.wikipedia.org/wiki/Cellular_automaton"> cellular automaton.</a>
+            <br/>
+            Each pageload generates a random cellular space.
+        </p>
+        <p>Created with ❤️ by <a href="https://ukr.lk">Kaveen R.</a></p>
     </main>
     <script src="theory.js"></script>
     <script src="sketch.js"></script>

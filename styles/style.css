@@ -2,7 +2,9 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100vh;
-  background: white;
+  background: #FEFEFE;
+  font-family: 'Playfair Display', serif;
+  
 }
 
 main {
@@ -12,13 +14,15 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-main h3 {
-    margin-top: 0px;
+    text-align: center;
 }
 
 
 canvas {
   display: block;
+  padding: 1em;
+}
+
+#songTitle {
+    text-decoration: none;
 }
