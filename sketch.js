@@ -75,9 +75,7 @@ function setup() {
   makeSequence(seed.value());
   
   // Share Link
-  shareUrl = `${window.location.origin}${window.location.pathname}#${seed.value()}`;
-  shareLink = createA(shareUrl, `Link For Song No ${seed.value()}`);
-  shareLink.position(12, 65);
+  window.location.hash = `#${seed.value()}`;
 }
 
 function switchScale() {
