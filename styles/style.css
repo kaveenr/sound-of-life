@@ -1,6 +1,6 @@
 html, body {
   margin: 0;
-  padding: 0;
+  padding: 1;
   height: 100vh;
   background: #FEFEFE;
   font-family: 'Playfair Display', serif;
@@ -18,16 +18,21 @@ main {
 }
 
 
-canvas {
+#world {
   display: block;
-  padding: 1em;
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 
 #songTitle {
     text-decoration: none;
 }
 
+footer {
+	margin-top: 1em;
+}
+
 hr {
-    width: 40vw;
+    width: 10vw;
     border-top: 1px solid black;
 }
