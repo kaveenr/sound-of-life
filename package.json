@@ -7,7 +7,7 @@
     "start": "run-p watch:*",
     "watch:web": "reload -b",
     "watch:css": "tailwindcss -i ./styles/style.css -o ./styles/dist.css --watch",
-	  "build": "tailwindcss -o ./styles/style.css -o ./styles/dist.css --minify"
+	  "build": "tailwindcss -i ./styles/style.css -o ./styles/dist.css --minify"
   },
   "keywords": [],
   "author": "",
