@@ -26,9 +26,12 @@
 	    <main class="flex flex-col justify-center items-center text-slate-800">
 			<header class="text-center pb-8">
 				<h1 class="text-4xl md:text-5xl">Song Of Life</h1>
-				<a class="text-lg md:text-2xl mt-2 text-sky-600" id="songTitle"></a>
+				<a class="text-lg md:text-2xl mt-2 text-sky-600" target="_blank" id="songTitle"></a>
 			</header>
 			<div class="flex items-center justify-center" id="world"></div>
+			<div class="flex flex-row gap-2 mt-6">
+				<a onClick="window.location.href = window.location.origin + window.location.pathname" class="cursor-pointer flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded-full text-lg">Regenerate&nbsp;&nbsp;🖥</a>			
+			</div>
 			<section class="text-center prose prose-sm md:prose-base mt-4">
 		        <p>"Song Of Life" is a generative music program based on <a href="https://en.wikipedia.org/wiki/Cellular_automaton"> cellular automaton</a>.
 
