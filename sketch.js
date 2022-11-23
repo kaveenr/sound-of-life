@@ -23,6 +23,7 @@ let stage = Array.from(Array(world_width), () => new Array(world_height));
 function setup() {
 	var canvas = createCanvas(...calcSize());
 	canvas.parent('world');
+	canvas.mouseClicked(canvasClicked)
 
 	// AUdio Setup
 	reverb = new p5.Reverb();
@@ -89,20 +90,11 @@ function updateSeed() {
 	makeSequence(this.value());
 }
 
-function mouseClicked() {
+function canvasClicked() {
 	if (!seqRunning) {
 		toggleSequencer();
 		return false;
 	}
-	if (mouseX < 0 || mouseY < 0) return false;
-	cell_x = floor(map(mouseX, 0, width, 0, world_width));
-	cell_y = floor(map(mouseY, 0, height, 0, world_height));
-	stage[cell_x][cell_y] = !stage[cell_x][cell_y];
-	return false;
-}
-
-function mouseDragged() {
-	if (!seqRunning) return false;
 	if (mouseX < 0 || mouseY < 0) return false;
 	cell_x = floor(map(mouseX, 0, width, 0, world_width));
 	cell_y = floor(map(mouseY, 0, height, 0, world_height));

@@ -7,44 +7,43 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com"> 
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
 	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="styles/style.css">
-    
+	<link href="/styles/dist.css" rel="stylesheet">
     <script src="/reload/reload.js"></script>
     <meta charset="utf-8" />
     <title>Song Of Life</title>
   </head>
   <body>
-     <div hidden="true">
-         <button id="start">Start/Stop</button>
-         <input id="tempo" type="range" min="50" max="450" step="5"/>
-         <input id="seed" type="number"/>
-         <select id="rootNote"></select>
-         <select id="selectedScale"></select>
-     </div>
-    <main>
-        <h1>
-            Song Of Life
-            <br/>
-            <a href="#" id="songTitle"></a>
-        </h1>
-        <br/>
-        <div id="world"></div>
-        <p>
-            "Song Of Life" is a generative music based on <a href="https://en.wikipedia.org/wiki/Cellular_automaton"> cellular automaton</a>
-            <br/>
-            Each pageload generates a random cellular space, where a sequencer follows each generation of the cells.
-        </p>
-        
-		<footer>
-        	<hr/>
-	        <p>
-	            Created with ❤️ by <a href="https://ukr.lk">Kaveen R.</a>
-	            <br/>
-	            Musical Scale Data by <a href="https://gist.github.com/guitarpickfm/2caf3f4ecc6efd7f07df958b1a245b8e">guitarpickfm</a>
-	        </p>
-		</footer>
-        
-    </main>
+     <div class="container mx-auto px-4 flex items-center justify-center h-screen">
+	     <div hidden="true">
+	         <button id="start">Start/Stop</button>
+	         <input id="tempo" type="range" min="50" max="450" step="5"/>
+	         <input id="seed" type="number"/>
+	         <select id="rootNote"></select>
+	         <select id="selectedScale"></select>
+	     </div>
+	    <main class="flex flex-col justify-center items-center">
+			<header class="text-center pb-8">
+				<h1 class="text-3xl md:text-4xl">Song Of Life</h1>
+				<a class="text-1xl md:text-3xl text-sky-600" id="songTitle"></a>
+			</header>
+			<div class="flex items-center justify-center" id="world"></div>
+			<!-- <section class="text-center prose prose-sm md:prose-base pt-4">
+		        <p>"Song Of Life" is a generative music program based on <a href="https://en.wikipedia.org/wiki/Cellular_automaton"> cellular automaton</a>.
+
+		            Each pageload generates a random cellular space, where a sequencer follows each generation of the cells.
+		        </p>
+			</section> -->
+			<hr class="w-32 mt-4 border-stone-500 border-t-2"/>
+			<footer class="text-center mt-3 text-slate-600 text-sm">
+		        <p>
+		            Created with ❤️ by <a class="text-sky-600" href="https://ukr.lk">Kaveen</a>
+		            <br/>
+		            Musical Scale Data by <a class="text-sky-600" href="https://gist.github.com/guitarpickfm/2caf3f4ecc6efd7f07df958b1a245b8e">guitarpickfm</a>
+		        </p>
+			</footer>
+		</div>
+	    </main>
+	</div>
     <script src="theory.js"></script>
     <script src="sketch.js"></script>
   </body>

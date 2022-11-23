@@ -1,38 +1,9 @@
-html, body {
-  margin: 0;
-  padding: 1;
-  height: 100vh;
-  background: #FEFEFE;
-  font-family: 'Playfair Display', serif;
-  
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-main {
-    padding: 0px;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
-
-#world {
-  display: block;
-  margin-top: 1em;
-  margin-bottom: 1em;
-}
-
-#songTitle {
-    text-decoration: none;
-}
-
-footer {
-	margin-top: 1em;
-}
-
-hr {
-    width: 10vw;
-    border-top: 1px solid black;
+@layer base {
+  html {
+    font-family: 'Playfair Display', serif;
+  }
 }
