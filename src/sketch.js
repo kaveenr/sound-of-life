@@ -1,7 +1,7 @@
 const SEQ_LEN = 32;
 const SEQ_OCT = 3;
 
-const TEMPO_MIN = 50;
+const TEMPO_MIN = 90;
 const TEMPO_MAX = 450
 
 const world_width = SEQ_LEN;
@@ -77,7 +77,7 @@ function setup() {
 	trackTitle.elt.href = `#${seed.value()}`;
 
 	// Hotfix for window size change
-	setTimeout(windowResized, 1000);
+	setTimeout(windowResized, 200);
 }
 
 function switchScale() {
@@ -100,13 +100,10 @@ function canvasClicked() {
 
 function makeSequence(seed) {
 	step = 0;
-	if (seed == 0) {
-		stage = Array.from(Array(world_width), () => new Array(world_height));
-		return;
-	}
+	stage = Array.from(Array(world_width), () => new Array(world_height));
 	for (let x = 0; x < world_width; x++) {
 		for (let y = 0; y < world_height; y++) {
-			stage[x][y] = round(random(1)) == 1;
+			stage[x][y] = round(noise(x,y)) == 1;
 		}
 	}
 }
@@ -227,21 +224,10 @@ function windowResized() {
 }
 
 function calcSize() {
-	const seqRatio = calculateRatio(world_width, world_height);
 	const sizeRoot = windowWidth < windowHeight ? windowWidth : windowHeight;
-	const deviser = 1.3;
+	const deviser = 1.8;
 	return [
-		(sizeRoot / deviser) * (seqRatio[0] / 10),
-		(sizeRoot / deviser) * (seqRatio[1] / 10),
+		(sizeRoot / deviser),
+		(sizeRoot / deviser),
 	];
-}
-
-function calculateRatio(num_1, num_2) {
-	for (num = num_2; num > 1; num--) {
-		if (num_1 % num == 0 && num_2 % num == 0) {
-			num_1 = num_1 / num;
-			num_2 = num_2 / num;
-		}
-	}
-	return [num_1, num_2];
 }
