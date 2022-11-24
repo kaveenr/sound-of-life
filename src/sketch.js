@@ -71,7 +71,7 @@ function setup() {
 	makeSequence(seed.value());
 
 	// Share Link
-	//window.location.hash = `#${seed.value()}`;
+	window.location.hash = `#${seed.value()}`;
 	trackTitle = select("#songTitle");
 	trackTitle.elt.innerText = `No ${seed.value()} in ${rootSel.value()} (${M_PRESET[scaleSel.value()].Name})`;
 	trackTitle.elt.href = `#${seed.value()}`;
@@ -91,14 +91,7 @@ function updateSeed() {
 }
 
 function canvasClicked() {
-	if (!seqRunning) {
-		toggleSequencer();
-		return false;
-	}
-	if (mouseX < 0 || mouseY < 0) return false;
-	cell_x = floor(map(mouseX, 0, width, 0, world_width));
-	cell_y = floor(map(mouseY, 0, height, 0, world_height));
-	stage[cell_x][cell_y] = !stage[cell_x][cell_y];
+	toggleSequencer();
 	return false;
 }
 
@@ -222,7 +215,7 @@ function draw() {
 		fill(color(0));
 		textSize(32);
 		textAlign(CENTER, CENTER);
-		text('Tap to start', width / 2, height / 2);
+		text('Tap to play', width / 2, height / 2);
 	}
 }
 
