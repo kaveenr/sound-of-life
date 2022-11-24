@@ -77,7 +77,7 @@ function setup() {
 	trackTitle.elt.href = `#${seed.value()}`;
 
 	// Hotfix for window size change
-	setTimeout(windowResized, 500);
+	setTimeout(windowResized, 1000);
 }
 
 function switchScale() {
