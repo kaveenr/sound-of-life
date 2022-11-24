@@ -75,6 +75,9 @@ function setup() {
 	trackTitle = select("#songTitle");
 	trackTitle.elt.innerText = `No ${seed.value()} in ${rootSel.value()} (${M_PRESET[scaleSel.value()].Name})`;
 	trackTitle.elt.href = `#${seed.value()}`;
+
+	// Hotfix for window size change
+	setTimeout(windowResized, 500);
 }
 
 function switchScale() {
